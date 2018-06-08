@@ -1,0 +1,19 @@
+<h1>Actions</h1>
+
+<ul id="actions">
+  <% @actions.each do |action| %>
+    <li>
+      <%= link_to action.title, action_path(action.id) %>
+
+      <%= link_to action_path(action.id), method: :delete, data: { confirm: "Delete #{action.title}?" } do %>
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<hr>
+
+<%= link_to new_action_path do %>
+  <i class="fa fa-plus"></i> Add a new action
+<% end %>
